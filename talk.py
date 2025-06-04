@@ -26,7 +26,7 @@ def _(mo):
         mo.md("SQL built-in"),
         mo.md("connect to databases and catalogs"),
         mo.md("AI-native"),
-        mo.image(src="assets/marimo-logo-v2.png", width=110).style(
+        mo.image(src="public/marimo-logo-v2.png", width=110).style(
             padding_top="3rem"
         ),
     )
@@ -53,14 +53,14 @@ def _(mo):
 
 @app.cell
 def _(mo):
-    mo.image("assets/star-history-2025426.png")
+    mo.image("public/star-history-2025426.png")
     return
 
 
 @app.cell
 def _(mo):
     mo.vstack(
-        [mo.md("## People like marimo"), mo.image("assets/testimonials.png")]
+        [mo.md("## People like marimo"), mo.image("public/testimonials.png")]
     )
     return
 
@@ -91,32 +91,32 @@ def _(mo):
             mo.hstack(
                 [
                     # mo.image(
-                    #    "assets/blackrock.jpg",
+                    #    "public/blackrock.jpg",
                     #    height=140,
                     #    style={"filter": "grayscale(1)"},
                     # ),
                     mo.image(
-                        "assets/mozilla.jpg",
+                        "public/mozilla.jpg",
                         height=140,
                         style={"filter": "grayscale(1)"},
                     ),
                     mo.image(
-                        "assets/huggingface.png",
+                        "public/huggingface.png",
                         height=100,
                         style={"filter": "grayscale(1)"},
                     ),
                     mo.image(
-                        "assets/cloudflare.png",
+                        "public/cloudflare.png",
                         height=200,
                         style={"filter": "grayscale(1)"},
                     ),
                     mo.image(
-                        "assets/stanford.png",
+                        "public/stanford.png",
                         height=100,
                         style={"filter": "grayscale(1)"},
                     ),
                     mo.image(
-                        "assets/berkeley.png",
+                        "public/berkeley.png",
                         height=100,
                         style={"filter": "grayscale(1)"},
                     ),
@@ -143,25 +143,25 @@ def _(mo):
 
 @app.cell
 def _(mo):
-    mo.image("assets/memes.png")
+    mo.image("public/memes.png")
     return
 
 
 @app.cell
 def _(mo):
-    mo.image("assets/meme-2.png")
+    mo.image("public/meme-2.png")
     return
 
 
 @app.cell
 def _(mo):
-    mo.image("assets/meme-3.png")
+    mo.image("public/meme-3.png")
     return
 
 
 @app.cell
 def _(mo):
-    mo.image("assets/meme-4.png")
+    mo.image("public/meme-4.png")
     return
 
 
@@ -341,7 +341,7 @@ def _(mo):
       Python AST visitor's analysis of `Call` nodes.
     * Python and SQL graphs joined based on return value and referenced variables
 
-    {mo.image("assets/sql_cell.png")}
+    {mo.image("public/sql_cell.png")}
 
     \[
     \Updownarrow
@@ -367,7 +367,7 @@ def _(mo):
     ## https://github.com/marimo-team/marimo
     """
         ),
-        mo.image("assets/marimo-logo-v2.png", width=80).style(padding_top="3rem"),
+        mo.image("public/marimo-logo-v2.png", width=80).style(padding_top="3rem"),
     )
     return
 
@@ -382,7 +382,7 @@ def _(mo):
     2. **Dataflow graph:** marimo wires a dataflow graph on cells, based on variables.
     3. **Runtimes:** marimo lets users run the graph interactively (notebook), as a script, or as a web app.
 
-    {mo.image("assets/compiler-v2.png", width="75%")}
+    {mo.image("public/compiler-v2.png", width="75%")}
     """
     )
     return
