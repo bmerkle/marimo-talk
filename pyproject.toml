@@ -1,0 +1,24 @@
+[project]
+name = "25-06-02-cloudflare"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "altair>=5.5.0",
+    "jinja2>=3.1.6",
+    "marimo>=0.13.15",
+    "matplotlib>=3.10.3",
+    "mohtml>=0.1.10",
+    "pandas>=2.2.3",
+    "pyarrow>=20.0.0",
+    "pyiceberg>=0.9.1",
+    "pymde>=0.2.1",
+    "torch>=2.7.0",
+]
+
+[tool.marimo.runtime]
+dotenv = [".env"]
+
+[tool.marimo.experimental]
+rtc_v2=true
