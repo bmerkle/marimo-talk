@@ -1,13 +1,123 @@
 import marimo
 
-__generated_with = "0.13.15"
-app = marimo.App(layout_file="layouts/talk.slides.json")
+__generated_with = "0.15.2"
+app = marimo.App()
 
 
 @app.cell
 def _():
     import marimo as mo
     return (mo,)
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""# Outline""")
+    return
+
+
+@app.cell
+def _(mo):
+    (
+        mo.md(
+            """
+            # Marimo Magic: 
+
+            # A New Era of Python Notebooks for Explorers and Engineers
+            """
+        ),
+        mo.md("next-gen reactive Python notebook"),
+        mo.md("app-like interactivity"),
+        mo.md("no reruns, instant updates"),
+        mo.image(src="public/marimo-logo-v2.png", width=110).style(
+            padding_top="3rem"
+        ),
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""# About me""")
+    return
+
+
+@app.cell
+def _(mo):
+    (
+        mo.image(src="pictures-sick/sick-logo-and-me.png")
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    (
+        mo.image(src="pictures-sick/sick-google-street-view-1.png")
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    (
+        mo.image(src="pictures-sick/sick-google-street-view-2.png")
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    (
+        mo.image(src="pictures-sick/sick-google-street-view-3.png")
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    (
+        mo.image(src="pictures-sick/sick-airport-1.png")
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    (
+        mo.image(src="pictures-sick/sick-airport-2.png")
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    (
+        mo.image(src="pictures-sick/sick-airport-3.png")
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    (
+        mo.image(src="pictures-sick/sick-airport-4.png")
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    (
+        mo.image(src="pictures-sick/sick-airport-5.png")
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""# Marimo""")
+    return
 
 
 @app.cell(hide_code=True)
@@ -51,17 +161,164 @@ def _(mo):
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(mo):
-    mo.image("public/star-history-2025426.png")
+    mo.md(
+        r"""
+    ## Reproducibility: Jupyter notebooks are usually broken
+
+    Of ~1M Jupyter[^1] notebooks on GitHub[^2]:
+
+    * $\approx 24\%$ notebooks were runnable
+    * $\approx 4\%$  notebooks on GitHub were reproducible
+
+    Of ~10M Jupyter[^1] notebooks on GitHub[^3]:
+
+    * $\approx 95\%$ in Python2 or Python3, $\approx 5\%$ in R, Julia, etc
+    * $\approx 95\%$ notebooks have < 465 LOC
+    * $\approx 33\%$ have invalid execution history
+
+    [^1]: with `ipykernel`
+    [^2]: _A Large-scale Study about Quality and Reproducibility of Jupyter Notebooks_, Pimental et al, 2019.
+    [^3]: https://blog.jetbrains.com/datalore/2020/12/17/we-downloaded-10-000-000-jupyter-notebooks-from-github-this-is-what-we-learned/
+    """
+    )
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""# Notebooks have problems""")
     return
 
 
 @app.cell
 def _(mo):
-    mo.vstack(
-        [mo.md("## People like marimo"), mo.image("public/testimonials.png")]
+    mo.md(r"""mo.image("public/memes.png")""")
+    return
+
+
+@app.cell
+def _(mo):
+    (
+        mo.md("## Reproducibility"),
+        mo.image("public/meme-2.png")
     )
+    return
+
+
+@app.cell
+def _(mo):
+    (
+        mo.md("## Maintainability"),
+        mo.image("public/meme-3.png")
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    (
+        mo.md("## git diff problems"),
+        mo.image("public/meme-4.png")
+    )
+    return
+
+
+@app.cell
+def _():
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""# Marimo fixed notebook shortcomings""")
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        """
+    ## Reactive runtime
+
+    Each cell is keyed with a unique ID; running the cell registers its code with
+    the graph
+
+    **Runtime rule.** When run as a notebook, marimo uses the DAG to keep code and outputs in sync.
+    > When a cell is run, all other cells that reference its definitions (its descendants) are also run.
+
+    **State pruning.** When a cell is deleted (or modified), its definitions are removed from kernel memory and its descendants are run.
+
+    **Lazy execution.** Descendants marked as stale instead of run.
+
+    **Control flow.** A runtime function `mo.stop()` that halts execution of the cell (and descendants).
+
+    **Granular re-runs for imports.** Statically determine the set of modules imported by a cell; descendants of "import-only" filtered to unseen imports.
+    """
+    )
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        r"""
+    ## A social contract
+
+    **The agreement.** 
+
+    marimo notebooks are dataflow graphs on cells, based on statically parsed variable definitions and references.
+
+    marimo imposes a few constraints on your code to ensure that your notebook is a directed acyclic graph (DAG).
+
+
+
+    1. No variable redefinitions across cells.
+    2. No cycles
+
+    Small learning curve
+
+    Scales for notebooks (LOC)
+    """
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r"""
+    ## A social contract
+
+
+    **In return, you get a notebook that is:**
+
+    - 🚀 **batteries-included:** replaces `jupyter`, `streamlit`, `jupytext`, `ipywidgets`, `papermill`, and more
+    - ⚡️ **reactive**: run a cell, and marimo reactively [runs all dependent cells](https://docs.marimo.io/guides/reactivity.html) or <a href="#expensive-notebooks">marks them as stale</a>
+    - 🖐️ **interactive:** [bind sliders, tables, plots, and more](https://docs.marimo.io/guides/interactivity.html) to Python — no callbacks required
+    - 🐍 **git-friendly:** stored as `.py` files
+    - 🛢️ **designed for data**: query dataframes, databases, warehouses, or lakehouses [with SQL](https://docs.marimo.io/guides/working_with_data/sql.html), filter and search [dataframes](https://docs.marimo.io/guides/working_with_data/dataframes.html)
+    - 🔬 **reproducible:** [no hidden state](https://docs.marimo.io/guides/reactivity.html#no-hidden-state), deterministic execution, [built-in package management](https://docs.marimo.io/guides/package_management/)
+    - 🏃 **executable:** [execute as a Python script](https://docs.marimo.io/guides/scripts.html), parameterized by CLI args
+    - 🛜 **shareable**: [deploy as an interactive web app](https://docs.marimo.io/guides/apps.html) or [slides](https://docs.marimo.io/guides/apps.html#slides-layout), [run in the browser via WASM](https://docs.marimo.io/guides/wasm.html)
+    - 🧩 **reusable:** [import functions and classes](https://docs.marimo.io/guides/reusing_functions/) from one notebook to another
+    - 🧪 **testable:** [run pytest](https://docs.marimo.io/guides/testing/) on notebooks
+    - ⌨️ **a modern editor**: [GitHub Copilot](https://docs.marimo.io/guides/editor_features/ai_completion.html#github-copilot), [AI assistants](https://docs.marimo.io/guides/editor_features/ai_completion.html#using-ollama), vim keybindings, variable explorer, and [more](https://docs.marimo.io/guides/editor_features/index.html)
+    """
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""# Marimo usage""")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.image("public/star-history-2025426.png")
     return
 
 
@@ -129,110 +386,17 @@ def _(mo):
     return
 
 
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""# Notebooks are everywhere""")
-    return
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""# Notebooks have problems""")
-    return
-
-
 @app.cell
 def _(mo):
-    mo.image("public/memes.png")
-    return
-
-
-@app.cell
-def _(mo):
-    mo.image("public/meme-2.png")
-    return
-
-
-@app.cell
-def _(mo):
-    mo.image("public/meme-3.png")
-    return
-
-
-@app.cell
-def _(mo):
-    mo.image("public/meme-4.png")
-    return
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(
-        r"""
-    ## Jupyter notebooks are usually broken
-
-    Of ~1M Jupyter[^1] notebooks on GitHub[^2]:
-
-    * $\approx 24\%$ notebooks were runnable
-    * $\approx 4\%$  notebooks on GitHub were reproducible
-
-    [^1]: with `ipykernel`
-    [^2]: _A Large-scale Study about Quality and Reproducibility of Jupyter Notebooks_, Pimental et al, 2019.
-    """
+    mo.vstack(
+        [mo.md("## People like marimo"), mo.image("public/testimonials.png")]
     )
     return
 
 
-@app.cell(hide_code=True)
+@app.cell
 def _(mo):
-    mo.md(
-        r"""
-    ## A social contract
-
-    **The agreement.** marimo notebooks are dataflow graphs on cells, based on statically parsed variable definitions and references.
-
-    1. No variable redefinitions across cells.
-    2. No cycles
-
-    **In return, you get a notebook that is:**
-
-    - 🚀 **batteries-included:** replaces `jupyter`, `streamlit`, `jupytext`, `ipywidgets`, `papermill`, and more
-    - ⚡️ **reactive**: run a cell, and marimo reactively [runs all dependent cells](https://docs.marimo.io/guides/reactivity.html) or <a href="#expensive-notebooks">marks them as stale</a>
-    - 🖐️ **interactive:** [bind sliders, tables, plots, and more](https://docs.marimo.io/guides/interactivity.html) to Python — no callbacks required
-    - 🐍 **git-friendly:** stored as `.py` files
-    - 🛢️ **designed for data**: query dataframes, databases, warehouses, or lakehouses [with SQL](https://docs.marimo.io/guides/working_with_data/sql.html), filter and search [dataframes](https://docs.marimo.io/guides/working_with_data/dataframes.html)
-    - 🔬 **reproducible:** [no hidden state](https://docs.marimo.io/guides/reactivity.html#no-hidden-state), deterministic execution, [built-in package management](https://docs.marimo.io/guides/package_management/)
-    - 🏃 **executable:** [execute as a Python script](https://docs.marimo.io/guides/scripts.html), parameterized by CLI args
-    - 🛜 **shareable**: [deploy as an interactive web app](https://docs.marimo.io/guides/apps.html) or [slides](https://docs.marimo.io/guides/apps.html#slides-layout), [run in the browser via WASM](https://docs.marimo.io/guides/wasm.html)
-    - 🧩 **reusable:** [import functions and classes](https://docs.marimo.io/guides/reusing_functions/) from one notebook to another
-    - 🧪 **testable:** [run pytest](https://docs.marimo.io/guides/testing/) on notebooks
-    - ⌨️ **a modern editor**: [GitHub Copilot](https://docs.marimo.io/guides/editor_features/ai_completion.html#github-copilot), [AI assistants](https://docs.marimo.io/guides/editor_features/ai_completion.html#using-ollama), vim keybindings, variable explorer, and [more](https://docs.marimo.io/guides/editor_features/index.html)
-    """
-    )
-    return
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(
-        """
-    ## Reactive runtime
-
-    Each cell is keyed with a unique ID; running the cell registers its code with
-    the graph
-
-    **Runtime rule.** When run as a notebook, marimo uses the DAG to keep code and outputs in sync.
-    > When a cell is run, all other cells that reference its definitions (its descendants) are also run.
-
-    **State pruning.** When a cell is deleted (or modified), its definitions are removed from kernel memory and its descendants are run.
-
-    **Lazy execution.** Descendants marked as stale instead of run.
-
-    **Control flow.** A runtime function `mo.stop()` that halts execution of the cell (and descendants).
-
-    **Granular re-runs for imports.** Statically determine the set of modules imported by a cell; descendants of "import-only" filtered to unseen imports.
-    """
-    )
+    mo.md(r"""# Marimo features""")
     return
 
 
@@ -359,19 +523,6 @@ def _(mo):
     return
 
 
-@app.cell
-def _(mo):
-    (
-        mo.md(
-            text="""
-    ## https://github.com/marimo-team/marimo
-    """
-        ),
-        mo.image("public/marimo-logo-v2.png", width=80).style(padding_top="3rem"),
-    )
-    return
-
-
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(
@@ -384,6 +535,45 @@ def _(mo):
 
     {mo.image("public/compiler-v2.png", width="75%")}
     """
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r"""
+    # Sources
+
+    [^1]: Marimo team youtube channel: https://www.youtube.com/@marimo-team
+
+    [^2]: Marimo team github repo: https://github.com/marimo-team/marimo
+
+    [^3]: Akshay Agrawal: Marimo Presentation https://github.com/akshayka/marimo-talk
+
+    [^4]: Python notebooks as dataflow graphs: reactive, reproducible, and reusable https://marimo.io/blog/dataflow
+
+    [^5]: _A Large-scale Study about Quality and Reproducibility of Jupyter Notebooks_, Pimental et al, 2019.
+
+    [^6]: https://blog.jetbrains.com/datalore/2020/12/17/we-downloaded-10-000-000-jupyter-notebooks-from-github-this-is-what-we-learned/
+
+    [^7]: https://sick.com
+
+    [^8]: https://maps.google.com
+    """
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    (
+        mo.md(
+            text="""
+    ## https://github.com/marimo-team/marimo
+    """
+        ),
+        mo.image("public/marimo-logo-v2.png", width=80).style(padding_top="3rem"),
     )
     return
 
