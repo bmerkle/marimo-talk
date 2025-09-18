@@ -226,7 +226,21 @@ def _(mo):
 
 
 @app.cell
-def _():
+def _(mo):
+    (
+        mo.md("## jupyter git diff problems"),
+
+        mo.md("### workarounds"),
+        mo.md("nbstripout: https://github.com/kynan/nbstripout"),
+        mo.md("Jupyter nbdime https://github.com/jupyter/nbdime"),
+        mo.md("JupyterLab Git extension https://github.com/jupyterlab/jupyterlab-git"),
+
+        mo.md("### remaining issues"),
+        mo.md("only pre commit hook (local)"),
+        mo.md("everybody has to stick to this rule"),
+        mo.md("view diff on GitHub / GitLab server ?!?"),
+
+    )
     return
 
 
@@ -236,25 +250,47 @@ def _(mo):
     return
 
 
-@app.cell(hide_code=True)
+@app.cell
+def _(mo):
+    (
+        mo.md("## reactive notebook"),
+
+        mo.video(src="public/reactive.webm", autoplay=True, loop=True )
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    (
+        mo.md("## reactive notebook, without callbacks"),
+
+        mo.video(src="public/reactive-2.webm", autoplay=True, loop=True)
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    (
+        mo.md("## reactive notebook, no hidden state"),
+
+         mo.video(src="public/delete.webm", autoplay=True, loop=True)
+    )
+    return
+
+
+@app.cell
 def _(mo):
     mo.md(
-        """
-    ## Reactive runtime
+        r"""
+    ## An intermediate representation as a dataflow graph
 
-    Each cell is keyed with a unique ID; running the cell registers its code with
-    the graph
+    1. **Python cells:** a marimo "program" is composed of blocks of Python code.
+    2. **Dataflow graph:** marimo wires a dataflow graph on cells, based on variables.
+    3. **Runtimes:** marimo lets users run the graph interactively (notebook), as a script, or as a web app.
 
-    **Runtime rule.** When run as a notebook, marimo uses the DAG to keep code and outputs in sync.
-    > When a cell is run, all other cells that reference its definitions (its descendants) are also run.
-
-    **State pruning.** When a cell is deleted (or modified), its definitions are removed from kernel memory and its descendants are run.
-
-    **Lazy execution.** Descendants marked as stale instead of run.
-
-    **Control flow.** A runtime function `mo.stop()` that halts execution of the cell (and descendants).
-
-    **Granular re-runs for imports.** Statically determine the set of modules imported by a cell; descendants of "import-only" filtered to unseen imports.
+    {mo.image("public/compiler-v2.png", width="75%")}
     """
     )
     return
@@ -307,6 +343,31 @@ def _(mo):
     - ⌨️ **a modern editor**: [GitHub Copilot](https://docs.marimo.io/guides/editor_features/ai_completion.html#github-copilot), [AI assistants](https://docs.marimo.io/guides/editor_features/ai_completion.html#using-ollama), vim keybindings, variable explorer, and [more](https://docs.marimo.io/guides/editor_features/index.html)
     """
     )
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        """
+    ## No tracking of (runtime) mutations
+
+    marimo does **not** track mutations
+
+    it makes the dataflow structure **easy for developers to understand**
+
+    it’s possible to implement with 100% **correctness**
+
+    tracking mutations (e.g. list.append()) would require semantic knowledge about mutations and require significant analysis effort
+    """
+    )
+    return
+
+
+@app.cell
+def _():
+
+
     return
 
 
@@ -523,6 +584,12 @@ def _(mo):
     return
 
 
+@app.cell
+def _(mo):
+    mo.md(r"""# Marimo dataflow graph implementation aspects""")
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(
@@ -536,6 +603,29 @@ def _(mo):
     {mo.image("public/compiler-v2.png", width="75%")}
     """
     )
+    return
+
+
+@app.cell
+def _(mo):
+    (
+        mo.md("## Inspration"),
+    
+        mo.center(
+            mo.hstack([
+                mo.image("public/pluto.png", width=120),
+                mo.image("public/observable.png", width=80),
+                mo.image("public/jupyter.png", width=80),
+                mo.image("public/excel.png", width=120),
+            ], gap=3)
+        )
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""# Marimo: A Next-Generation Python Notebook""")
     return
 
 
