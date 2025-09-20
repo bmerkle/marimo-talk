@@ -1,7 +1,7 @@
 import marimo
 
 __generated_with = "0.15.2"
-app = marimo.App()
+app = marimo.App(layout_file="layouts/notebook.slides.json")
 
 
 @app.cell
@@ -23,15 +23,72 @@ def _(mo):
             """
             # Marimo Magic: 
 
-            # A New Era of Python Notebooks for Explorers and Engineers
+            # A New Era of Python Notebooks <br>for Explorers and Engineers
             """
         ),
-        mo.md("next-gen reactive Python notebook"),
-        mo.md("app-like interactivity"),
-        mo.md("no reruns, instant updates"),
+
         mo.image(src="public/marimo-logo-v2.png", width=110).style(
             padding_top="3rem"
         ),
+    )
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        r"""
+    ## marimo: a next-generation Python notebook
+
+    Unlike traditional notebooks, marimo notebooks are  
+    - **maintainable** Python programs  
+    - with **reproducible** execution semantics  
+    - that can be **reused** as:
+
+    1. ::lucide:circle-play:: a reactive notebook, with interactive elements <br> built-in; caching, lazy execution, and parallelization for expensive notebooks
+    3. ::lucide:file-code-2:: a Python script, importable as a module, tight integration with uv for package management
+    4. ::lucide:mouse-pointer-click:: an interactive web app, deployable on a server or shareable as HTML with WASM
+
+    Built **entirely from scratch** — no dependencies on Jupyter or IPython.
+    """
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r"""
+    ## Movitating a new kind of notebook
+
+    ~~Software~~ eats the world (Marc Andreessen)
+
+    **Data** eats the world (raise of AI)
+
+
+    Number of GitHub repos with Jupyter notbooks **doubled** in 2024  
+
+    AI/data work vs software engineering
+
+    1. Data scientist vs Software Engineer
+    2. evaluate datasets, models, algorithm
+    3. interatively transform and visualize 
+    4. data from CSV, DB, datasets, hold objects in memory
+
+    Notebooks enable this workflow
+
+    Python and Jupyter are dominant (vs. Pluto/Julia, Observable/JS, R)
+    """
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    (
+        mo.md("## reactive notebook to analyze embeddings"),
+
+        mo.video(src="public/embedding.mp4", autoplay=True, loop=True )
     )
     return
 
@@ -130,7 +187,8 @@ def _(mo):
         ),
         mo.md("open source"),
         mo.md("stored as Python (version with Git!)"),
-        mo.md("reproducible"),
+        mo.md("maintainable, reproducible, reusable"),
+        mo.md("interactive UI elements"),
         mo.md("share as apps"),
         mo.md("run as scripts"),
         mo.md("SQL built-in"),
@@ -145,19 +203,7 @@ def _(mo):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
-    ## A new kind of Python notebook
-
-    Unlike traditional notebooks, marimo notebooks are **maintainable** Python programs with **reproducible** execution semantics that can be **reused** as:
-
-    1. ::lucide:circle-play:: a reactive notebook, with interactive elements built-in; caching, lazy execution, and parallelization for expensive notebooks
-    2. ::lucide:file-code-2:: a Python script, importable as a module, tight integration with uv for package management
-    3. ::lucide:mouse-pointer-click:: an interactive web app, deployable on a server or shareable as HTML with WASM
-
-    Built **entirely from scratch** — no dependencies on Jupyter or IPython.
-    """
-    )
+    mo.md(r"""# Notebooks have problems""")
     return
 
 
@@ -174,9 +220,10 @@ def _(mo):
 
     Of ~10M Jupyter[^1] notebooks on GitHub[^3]:
 
+    * $\approx 33\%$ have invalid execution history
     * $\approx 95\%$ in Python2 or Python3, $\approx 5\%$ in R, Julia, etc
     * $\approx 95\%$ notebooks have < 465 LOC
-    * $\approx 33\%$ have invalid execution history
+
 
     [^1]: with `ipykernel`
     [^2]: _A Large-scale Study about Quality and Reproducibility of Jupyter Notebooks_, Pimental et al, 2019.
@@ -186,15 +233,12 @@ def _(mo):
     return
 
 
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""# Notebooks have problems""")
-    return
-
-
 @app.cell
 def _(mo):
-    mo.md(r"""mo.image("public/memes.png")""")
+    (
+        mo.md("## Reproducibility"),
+        mo.image("public/memes.png")
+    )
     return
 
 
@@ -227,19 +271,20 @@ def _(mo):
 
 @app.cell
 def _(mo):
-    (
-        mo.md("## jupyter git diff problems"),
+    mo.md(
+        r"""
+    ## jupyter git diff problems  
 
-        mo.md("### workarounds"),
-        mo.md("nbstripout: https://github.com/kynan/nbstripout"),
-        mo.md("Jupyter nbdime https://github.com/jupyter/nbdime"),
-        mo.md("JupyterLab Git extension https://github.com/jupyterlab/jupyterlab-git"),
+    ### workarounds
+    - nbstripout: https://github.com/kynan/nbstripout
+    - Jupyter nbdime https://github.com/jupyter/nbdime
+    - JupyterLab Git extension https://github.com/jupyterlab/jupyterlab-git
 
-        mo.md("### remaining issues"),
-        mo.md("only pre commit hook (local)"),
-        mo.md("everybody has to stick to this rule"),
-        mo.md("view diff on GitHub / GitLab server ?!?"),
-
+    ### remaining issues
+    - only pre commit hook (local)
+    - everybody has to stick to this rule
+    - view diff on GitHub / GitLab server ?!?
+    """
     )
     return
 
@@ -263,6 +308,16 @@ def _(mo):
 @app.cell
 def _(mo):
     (
+        mo.md("## reactive notebook, no hidden state"),
+
+         mo.video(src="public/delete.webm", autoplay=True, loop=True)
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    (
         mo.md("## reactive notebook, without callbacks"),
 
         mo.video(src="public/reactive-2.webm", autoplay=True, loop=True)
@@ -273,25 +328,35 @@ def _(mo):
 @app.cell
 def _(mo):
     (
-        mo.md("## reactive notebook, no hidden state"),
+        mo.md("## Interactive dataframes."),
+        mo.md("Page through, search, filter, and sort millions of rows blazingly fast, no code required."),
 
-         mo.video(src="public/delete.webm", autoplay=True, loop=True)
+         mo.video(src="public/docs-df.mp4", autoplay=True, loop=True)
     )
     return
 
 
 @app.cell
 def _(mo):
-    mo.md(
-        r"""
-    ## An intermediate representation as a dataflow graph
+    (
+        mo.md("## Query data with SQL"),
+        mo.md("SQL parser+highlight, query against dataframes, databases, lakehouses, CSVs, Google Sheets."),
 
-    1. **Python cells:** a marimo "program" is composed of blocks of Python code.
-    2. **Dataflow graph:** marimo wires a dataflow graph on cells, based on variables.
-    3. **Runtimes:** marimo lets users run the graph interactively (notebook), as a script, or as a web app.
+        mo.image("public/readme-sql-cell.png")
+    )
+    return
 
-    {mo.image("public/compiler-v2.png", width="75%")}
-    """
+
+@app.cell
+def _(mo):
+    (
+    mo.md("## An intermediate representation as a dataflow graph"),
+
+    mo.md("1. **Python cells:** a marimo \"program\" is composed of blocks of Python code."),
+    mo.md("2. **Dataflow graph:** marimo wires a dataflow graph on cells, based on variables."),
+    mo.md("3. **Runtimes:** marimo lets users run the graph interactively (notebook), as a script, or as a web app."),
+
+    mo.image(src="public/compiler-v2.png", width="75%")   
     )
     return
 
@@ -359,15 +424,19 @@ def _(mo):
     it’s possible to implement with 100% **correctness**
 
     tracking mutations (e.g. list.append()) would require semantic knowledge about mutations and require significant analysis effort
+
+
+    ## Tracking of package dependencies
+
+    marimo edit --sandbox notebook.py
+
+    creates an isolated environment (a virtual environment) to run the notebook
+
+    dependencies tracked and installed automatically.
+
+    dependencies tracked in the notebook file via inline script metadata, following PEP 723
     """
     )
-    return
-
-
-@app.cell
-def _():
-
-
     return
 
 
@@ -590,6 +659,38 @@ def _(mo):
     return
 
 
+@app.cell
+def _(mo):
+    (
+        mo.md("## Inspiration"),
+
+        mo.center(
+            mo.hstack([
+                mo.image("public/pluto.png", width=150),
+                mo.image("public/observable.png", width=100),
+                mo.image("public/jupyter.png", width=100),
+                mo.image("public/excel.png", width=150),
+            ], gap=3)
+        )
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r"""
+    ## Representation as a dataflow graph
+
+    1. Each cell is a node
+    2. an edge u -> v means cell v refers to a variable defined in cell u
+    3. Definitions and references are **statically** inferred
+    4. No runtime tracking of mutations
+    """
+    )
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(
@@ -608,24 +709,25 @@ def _(mo):
 
 @app.cell
 def _(mo):
-    (
-        mo.md("## Inspration"),
-    
-        mo.center(
-            mo.hstack([
-                mo.image("public/pluto.png", width=120),
-                mo.image("public/observable.png", width=80),
-                mo.image("public/jupyter.png", width=80),
-                mo.image("public/excel.png", width=120),
-            ], gap=3)
-        )
+    mo.md(
+        r"""
+    ## Constraints and Conventions
+
+    ###Constraints
+
+    The dataflow graph must be a DAG  
+    1. No cycles  
+    2. No variable redefinitions across cells     
+    3. No deleting another cell's variable
+
+    ###Conventions
+
+    Conventions in marimo python  
+    1. Local variables start with `_`  
+    2. Functions and classes are defined in their own cells  
+    3. Cells that define functions or classes should not have side effects
+    """
     )
-    return
-
-
-@app.cell
-def _(mo):
-    mo.md(r"""# Marimo: A Next-Generation Python Notebook""")
     return
 
 
@@ -633,7 +735,64 @@ def _(mo):
 def _(mo):
     mo.md(
         r"""
-    # Sources
+    ## Implementation
+
+    1. **Parsing**: code -> AST (abstract syntax tree)
+    2. **Static analysis**: AST -> DFG (dataflow graph)
+        - AST variable definitions and references
+        - Scope resolution
+        - Graph wiring
+        - Constraints checking
+    """
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""# Summary""")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r"""
+    ## Marimo Values 
+
+    1. Embrace Python
+    2. Embrace constraints
+    3. Simple is better than complex
+    4. Easy-to-understand contract between user and marimo
+        - short description of constraints
+        - unambiguous semantics
+        - clear articulation of tradeoffs and value
+    5. Design for extensibility
+    6. Prefer simplicity
+    7. Readability counts
+    8. A culture of correctness
+    9. Errors should never pass silently
+    10. There should be one -- and preferably only one -- obvious way to do it
+    """
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    (
+        mo.md("## Next Generation Python Notebooks <br>for Explorers and Engineers"),
+
+        mo.video(src="public/marimo.mp4", autoplay=True)
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r"""
+    ## Sources
 
     [^1]: Marimo team youtube channel: https://www.youtube.com/@marimo-team
 
