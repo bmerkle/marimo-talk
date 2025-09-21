@@ -5,6 +5,12 @@ app = marimo.App()
 
 
 @app.cell
+def _():
+    x = 1
+    return (x,)
+
+
+@app.cell
 def _(x):
     y = x + 5
     y
@@ -20,9 +26,29 @@ def _(y):
 
 @app.cell
 def _():
-    x = 42
-    x
-    return (x,)
+
+
+    return
+
+
+@app.cell
+def _():
+    import marimo as mo
+    import math
+    return math, mo
+
+
+@app.cell
+def _(mo):
+    v = mo.ui.slider(1, 20)
+    v
+    return (v,)
+
+
+@app.cell
+def _(math, mo, v):
+    mo.md(f"""$e^{v.value} = {math.exp(v.value):0.3f}$""")
+    return
 
 
 if __name__ == "__main__":

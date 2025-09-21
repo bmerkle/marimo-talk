@@ -7,7 +7,7 @@
 
 import marimo
 
-__generated_with = "0.13.2"
+__generated_with = "0.15.2"
 app = marimo.App()
 
 
@@ -47,17 +47,19 @@ def _(NUMBER_OF_EXAMPLES, get_index, mo, set_index):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(f"_Which haiku do you prefer?_")
+    mo.md(f"""_Which haiku do you prefer?_""")
     return
 
 
 @app.cell
 def _(mo, num_a_preferred, num_b_preferred):
-    mo.md(f"""
+    mo.md(
+        f"""
     Model A: {num_a_preferred * "🍃"}
 
     Model B: {num_b_preferred * "🍃"}
-    """)
+    """
+    )
     return
 
 

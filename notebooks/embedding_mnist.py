@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.13.15"
+__generated_with = "0.15.2"
 app = marimo.App()
 
 
@@ -41,7 +41,7 @@ def _(args, compute_embedding, constraint, embedding_dimension, mo):
     return (embedding,)
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(alt, df, mo):
     alt_chart = (
         alt.Chart(df)
