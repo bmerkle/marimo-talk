@@ -1,10 +1,12 @@
 # /// script
 # requires-python = ">=3.12"
 # dependencies = [
+#     "anthropic==0.72.0",
 #     "jinja2==3.1.6",
 #     "mohtml==0.1.11",
 # ]
 # ///
+
 import marimo
 
 __generated_with = "0.17.6"
@@ -19,9 +21,7 @@ def _():
 
 @app.cell
 def _(mo):
-    mo.md(r"""
-    # Outline
-    """)
+    mo.image("public/marimo-magic.png").style(width="100%", height="100vh")
     return
 
 
@@ -68,9 +68,7 @@ def _(mo):
     ## Movitating a new kind of notebook
 
     ~~Software~~ eats the world (Marc Andreessen)
-
     **Data** eats the world (raise of AI)
-
 
     Number of GitHub repos with Jupyter notbooks **doubled** in 2024
 
@@ -93,7 +91,7 @@ def _(mo):
     (
         mo.md("## reactive notebook to analyze embeddings"),
 
-        mo.video(src="public/embedding.mp4", autoplay=True, loop=True )
+        mo.video(src="public/embedding.mp4", autoplay=True, loop=True).style(width="60%", max_width="60%")
     )
     return
 
@@ -588,12 +586,20 @@ def _(mo):
         mo.md("## Inspiration"),
 
         mo.center(
-            mo.hstack([
-                mo.image("public/pluto.png", width=150),
-                mo.image("public/observable.png", width=100),
-                mo.image("public/jupyter.png", width=100),
-                mo.image("public/excel.png", width=150),
-            ], gap=3)
+            mo.vstack([
+                mo.md("### Notebooks that inspired marimo").style(
+                    font_size="1.2rem", 
+                    margin_bottom="1rem"
+                ),
+                mo.hstack([
+                    mo.image("public/pluto.png", width=180),
+                    mo.image("public/observable.png", width=130),
+                    mo.image("public/jupyter.png", width=130),
+                    mo.image("public/excel.png", width=180),
+                ], gap=5, align="center")
+                .style(width="100%", padding="1rem")
+            ])
+            .style(width="100%", height="80vh", justify_content="center")
         )
     )
     return
