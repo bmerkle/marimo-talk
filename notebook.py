@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.15.2"
+__generated_with = "0.17.6"
 app = marimo.App(layout_file="layouts/notebook.slides.json")
 
 
@@ -12,7 +12,9 @@ def _():
 
 @app.cell
 def _(mo):
-    mo.md(r"""# Outline""")
+    mo.md(r"""
+    # Outline
+    """)
     return
 
 
@@ -36,13 +38,12 @@ def _(mo):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
+    mo.md(r"""
     ## marimo: a next-generation Python notebook
 
-    Unlike traditional notebooks, marimo notebooks are  
-    - **maintainable** Python programs  
-    - with **reproducible** execution semantics  
+    Unlike traditional notebooks, marimo notebooks are
+    - **maintainable** Python programs
+    - with **reproducible** execution semantics
     - that can be **reused** as:
 
     1. ::lucide:circle-play:: a reactive notebook, with interactive elements <br> built-in; caching, lazy execution, and parallelization for expensive notebooks
@@ -50,15 +51,13 @@ def _(mo):
     4. ::lucide:mouse-pointer-click:: an interactive web app, deployable on a server or shareable as HTML with WASM
 
     Built **entirely from scratch** — no dependencies on Jupyter or IPython.
-    """
-    )
+    """)
     return
 
 
 @app.cell
 def _(mo):
-    mo.md(
-        r"""
+    mo.md(r"""
     ## Movitating a new kind of notebook
 
     ~~Software~~ eats the world (Marc Andreessen)
@@ -66,20 +65,19 @@ def _(mo):
     **Data** eats the world (raise of AI)
 
 
-    Number of GitHub repos with Jupyter notbooks **doubled** in 2024  
+    Number of GitHub repos with Jupyter notbooks **doubled** in 2024
 
     AI/data work vs software engineering
 
     1. Data scientist vs Software Engineer
     2. evaluate datasets, models, algorithm
-    3. interatively transform and visualize 
+    3. interatively transform and visualize
     4. data from CSV, DB, datasets, hold objects in memory
 
     Notebooks enable this workflow
 
     Python and Jupyter are dominant (vs. Pluto/Julia, Observable/JS, R)
-    """
-    )
+    """)
     return
 
 
@@ -95,85 +93,9 @@ def _(mo):
 
 @app.cell
 def _(mo):
-    mo.md(r"""# About me""")
-    return
-
-
-@app.cell
-def _(mo):
-    (
-        mo.image(src="pictures-sick/sick-logo-and-me.png")
-    )
-    return
-
-
-@app.cell
-def _(mo):
-    (
-        mo.image(src="pictures-sick/sick-google-street-view-1.png")
-    )
-    return
-
-
-@app.cell
-def _(mo):
-    (
-        mo.image(src="pictures-sick/sick-google-street-view-2.png")
-    )
-    return
-
-
-@app.cell
-def _(mo):
-    (
-        mo.image(src="pictures-sick/sick-google-street-view-3.png")
-    )
-    return
-
-
-@app.cell
-def _(mo):
-    (
-        mo.image(src="pictures-sick/sick-airport-1.png")
-    )
-    return
-
-
-@app.cell
-def _(mo):
-    (
-        mo.image(src="pictures-sick/sick-airport-2.png")
-    )
-    return
-
-
-@app.cell
-def _(mo):
-    (
-        mo.image(src="pictures-sick/sick-airport-3.png")
-    )
-    return
-
-
-@app.cell
-def _(mo):
-    (
-        mo.image(src="pictures-sick/sick-airport-4.png")
-    )
-    return
-
-
-@app.cell
-def _(mo):
-    (
-        mo.image(src="pictures-sick/sick-airport-5.png")
-    )
-    return
-
-
-@app.cell
-def _(mo):
-    mo.md(r"""# Marimo""")
+    mo.md(r"""
+    # Marimo
+    """)
     return
 
 
@@ -203,14 +125,15 @@ def _(mo):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""# Notebooks have problems""")
+    mo.md(r"""
+    # Notebooks have problems
+    """)
     return
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
+    mo.md(r"""
     ## Reproducibility: Jupyter notebooks are usually broken
 
     Of ~1M Jupyter[^1] notebooks on GitHub[^2]:
@@ -228,8 +151,7 @@ def _(mo):
     [^1]: with `ipykernel`
     [^2]: _A Large-scale Study about Quality and Reproducibility of Jupyter Notebooks_, Pimental et al, 2019.
     [^3]: https://blog.jetbrains.com/datalore/2020/12/17/we-downloaded-10-000-000-jupyter-notebooks-from-github-this-is-what-we-learned/
-    """
-    )
+    """)
     return
 
 
@@ -271,9 +193,8 @@ def _(mo):
 
 @app.cell
 def _(mo):
-    mo.md(
-        r"""
-    ## jupyter git diff problems  
+    mo.md(r"""
+    ## jupyter git diff problems
 
     ### workarounds
     - nbstripout: https://github.com/kynan/nbstripout
@@ -284,14 +205,15 @@ def _(mo):
     - only pre commit hook (local)
     - everybody has to stick to this rule
     - view diff on GitHub / GitLab server ?!?
-    """
-    )
+    """)
     return
 
 
 @app.cell
 def _(mo):
-    mo.md(r"""# Marimo fixed notebook shortcomings""")
+    mo.md(r"""
+    # Marimo fixed notebook shortcomings
+    """)
     return
 
 
@@ -363,11 +285,10 @@ def _(mo):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
+    mo.md(r"""
     ## A social contract
 
-    **The agreement.** 
+    **The agreement.**
 
     marimo notebooks are dataflow graphs on cells, based on statically parsed variable definitions and references.
 
@@ -381,15 +302,13 @@ def _(mo):
     Small learning curve
 
     Scales for notebooks (LOC)
-    """
-    )
+    """)
     return
 
 
 @app.cell
 def _(mo):
-    mo.md(
-        r"""
+    mo.md(r"""
     ## A social contract
 
 
@@ -406,15 +325,13 @@ def _(mo):
     - 🧩 **reusable:** [import functions and classes](https://docs.marimo.io/guides/reusing_functions/) from one notebook to another
     - 🧪 **testable:** [run pytest](https://docs.marimo.io/guides/testing/) on notebooks
     - ⌨️ **a modern editor**: [GitHub Copilot](https://docs.marimo.io/guides/editor_features/ai_completion.html#github-copilot), [AI assistants](https://docs.marimo.io/guides/editor_features/ai_completion.html#using-ollama), vim keybindings, variable explorer, and [more](https://docs.marimo.io/guides/editor_features/index.html)
-    """
-    )
+    """)
     return
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        """
+    mo.md("""
     ## No tracking of **runtime** mutations
 
     marimo does **not** track **runtime** mutations
@@ -435,14 +352,15 @@ def _(mo):
     dependencies tracked and installed automatically.
 
     dependencies tracked in the notebook file via inline script metadata, following PEP 723
-    """
-    )
+    """)
     return
 
 
 @app.cell
 def _(mo):
-    mo.md(r"""# Marimo usage""")
+    mo.md(r"""
+    # Marimo usage
+    """)
     return
 
 
@@ -526,7 +444,9 @@ def _(mo):
 
 @app.cell
 def _(mo):
-    mo.md(r"""# Marimo features""")
+    mo.md(r"""
+    # Marimo features
+    """)
     return
 
 
@@ -538,8 +458,7 @@ def _(mo):
 
 @app.cell(hide_code=True)
 def _(leaves, mo):
-    mo.md(
-        f"""
+    mo.md(f"""
     ## Interactive elements
 
     Binding UI elements to global variables connects them to marimo's runtime.
@@ -553,8 +472,7 @@ def _(leaves, mo):
 
     * Each UI element is given a unique ID by the runtime, shared with the frontend.
     * On interaction, runtime searches `globals` for matching `UIElement` objects.
-    """
-    )
+    """)
     return
 
 
@@ -566,8 +484,7 @@ def _():
 
 @app.cell(hide_code=True)
 def _(mo, terminal):
-    mo.md(
-        f"""
+    mo.md(f"""
     ## ::lucide:file-code-2:: A Python script
 
     #### Script execution
@@ -594,8 +511,7 @@ def _(mo, terminal):
     2. Test with pytest
     3. Inline script metadata and configuration
     4. Edit as plaintext files
-    """
-    )
+    """)
     return
 
 
@@ -625,8 +541,7 @@ def _(mo, model_comparison_result):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        rf"""
+    mo.md(rf"""
     ## SQL embedding
 
     SQL supported through an embedding in Python:
@@ -648,14 +563,15 @@ def _(mo):
     '''
     )
     ```
-    """
-    )
+    """)
     return
 
 
 @app.cell
 def _(mo):
-    mo.md(r"""# Marimo dataflow graph implementation aspects""")
+    mo.md(r"""
+    # Marimo dataflow graph implementation aspects
+    """)
     return
 
 
@@ -678,23 +594,20 @@ def _(mo):
 
 @app.cell
 def _(mo):
-    mo.md(
-        r"""
+    mo.md(r"""
     ## Representation as a dataflow graph
 
     1. Each cell is a node
     2. an edge u -> v means cell v refers to a variable defined in cell u
     3. Definitions and references are **statically** inferred
     4. No runtime tracking of mutations
-    """
-    )
+    """)
     return
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        rf"""
+    mo.md(rf"""
     ## An intermediate representation as a dataflow graph
 
     1. **Python cells:** a marimo "program" is composed of blocks of Python code.
@@ -702,39 +615,35 @@ def _(mo):
     3. **Runtimes:** marimo lets users run the graph interactively (notebook), as a script, or as a web app.
 
     {mo.image("public/compiler-v2.png", width="75%")}
-    """
-    )
+    """)
     return
 
 
 @app.cell
 def _(mo):
-    mo.md(
-        r"""
+    mo.md(r"""
     ## Constraints and Conventions
 
     ###Constraints
 
-    The dataflow graph must be a DAG  
-    1. No cycles  
-    2. No variable redefinitions across cells     
+    The dataflow graph must be a DAG
+    1. No cycles
+    2. No variable redefinitions across cells
     3. No deleting another cell's variable
 
     ###Conventions
 
-    Conventions in marimo python  
-    1. Local variables start with `_`  
-    2. Functions and classes are defined in their own cells  
+    Conventions in marimo python
+    1. Local variables start with `_`
+    2. Functions and classes are defined in their own cells
     3. Cells that define functions or classes should not have side effects
-    """
-    )
+    """)
     return
 
 
 @app.cell
 def _(mo):
-    mo.md(
-        r"""
+    mo.md(r"""
     ## Implementation
 
     1. **Parsing**: code -> AST (abstract syntax tree)
@@ -743,22 +652,22 @@ def _(mo):
         - Scope resolution
         - Graph wiring
         - Constraints checking
-    """
-    )
+    """)
     return
 
 
 @app.cell
 def _(mo):
-    mo.md(r"""# Summary""")
+    mo.md(r"""
+    # Summary
+    """)
     return
 
 
 @app.cell
 def _(mo):
-    mo.md(
-        r"""
-    ## Marimo Values 
+    mo.md(r"""
+    ## Marimo Values
 
     1. Embrace Python
     2. Embrace constraints
@@ -773,8 +682,7 @@ def _(mo):
     8. A culture of correctness
     9. Errors should never pass silently
     10. There should be one -- and preferably only one -- obvious way to do it
-    """
-    )
+    """)
     return
 
 
@@ -790,8 +698,7 @@ def _(mo):
 
 @app.cell
 def _(mo):
-    mo.md(
-        r"""
+    mo.md(r"""
     ## Sources
 
     [^1]: Marimo team youtube channel: https://www.youtube.com/@marimo-team
@@ -805,12 +712,7 @@ def _(mo):
     [^5]: _A Large-scale Study about Quality and Reproducibility of Jupyter Notebooks_, Pimental et al, 2019.
 
     [^6]: https://blog.jetbrains.com/datalore/2020/12/17/we-downloaded-10-000-000-jupyter-notebooks-from-github-this-is-what-we-learned/
-
-    [^7]: https://sick.com
-
-    [^8]: https://maps.google.com
-    """
-    )
+    """)
     return
 
 
