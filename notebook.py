@@ -1,3 +1,10 @@
+# /// script
+# requires-python = ">=3.12"
+# dependencies = [
+#     "jinja2==3.1.6",
+#     "mohtml==0.1.11",
+# ]
+# ///
 import marimo
 
 __generated_with = "0.17.6"
