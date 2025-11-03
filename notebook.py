@@ -415,9 +415,9 @@ def _(mo):
 def _(mo):
     mo.md(
         """
-    ## No tracking of (runtime) mutations
+    ## No tracking of **runtime** mutations
 
-    marimo does **not** track mutations
+    marimo does **not** track **runtime** mutations
 
     it makes the dataflow structure **easy for developers to understand**
 
